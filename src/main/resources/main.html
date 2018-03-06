@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pizzaOrder">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza order</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/PizzaOrderController.js"></script>
+</head>
+<body ng-controller="pizzaOrderController as order">
+
+<table border="2px">
+    <tr ng-repeat="item in order.order">
+        <td>{{item}}</td>
+    </tr>
+</table>
+
+<br/>
+
+<form ng-submit="order.addPizza(order.newPizza)">
+    <input type="radio" ng-repeat="base in order.pizzaBases" value="{{base.size}}">
+    <input class="btn-primary" type="submit" value="add">
+</form>
+
+</body>
+</html>
